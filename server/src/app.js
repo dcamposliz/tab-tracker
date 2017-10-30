@@ -8,11 +8,12 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-// get
-// post
-// put
-// patch
-// delete
+// HTTP methods:
+//  get
+//  post
+//  put
+//  patch
+//  delete
 
 app.get('/status', (req, res) => {
   res.send({

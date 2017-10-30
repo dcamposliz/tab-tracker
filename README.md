@@ -57,3 +57,33 @@ $ touch app.js
 ```
 
 Modify `/tab-tracker/server/src/app.js` such that it looks like:
+
+```
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const morgan = require('morgan')
+
+const app = express()
+app.use(morgan('combined'))
+app.use(bodyParser.json())
+app.use(cors())
+
+// HTTP methods:
+//  get
+//  post
+//  put
+//  patch
+//  delete
+
+app.get('/status', (req, res) => {
+  res.send({
+    message: 'hello world!'
+  })
+})
+
+app.listen(process.env.PORT || 8081)
+
+```
+
+https://www.youtube.com/watch?v=Fa4cRMaTDUI&t=296s
