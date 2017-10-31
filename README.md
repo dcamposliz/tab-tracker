@@ -1,5 +1,7 @@
 # tab-tracker
 
+References: https://www.youtube.com/watch?v=Fa4cRMaTDUI&t=296s
+
 ```
 $ git clone git@github.com:dcamposliz/tab-tracker.git
 $ npm install -g vue-cli
@@ -86,4 +88,20 @@ app.listen(process.env.PORT || 8081)
 
 ```
 
-https://www.youtube.com/watch?v=Fa4cRMaTDUI&t=296s
+At this point, we can run both the client, and the server applications.
+
+To run the client:
+
+```
+cd /tab-tracker/client
+npm run dev
+```
+
+To run the server:
+
+```
+cd /tab-tracker/server
+npm start
+```
+
+Download Postman to test out the server's endpoints.
