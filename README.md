@@ -1,6 +1,14 @@
 # tab-tracker
 
-References: https://www.youtube.com/watch?v=Fa4cRMaTDUI&t=296s
+This project features a full stack application using Vue.js and Express.js.
+
+References:
+* https://www.youtube.com/watch?v=Fa4cRMaTDUI
+* https://github.com/codyseibert/tab-tracker
+
+
+# Video 1: [Full Stack Web App using Vue.js & Express.js: Part 1 - Intro](https://www.youtube.com/watch?v=Fa4cRMaTDUI)
+
 
 ```
 $ git clone git@github.com:dcamposliz/tab-tracker.git
@@ -105,3 +113,21 @@ npm start
 ```
 
 Download Postman to test out the server's endpoints.
+
+## Create Register
+
+Run:
+
+```
+cd /tab-tracker/client
+npm install --save axios
+```
+
+# Video 2: [Full Stack Web App using Vue.js & Express.js: Part 2 - Sequelize](https://www.youtube.com/watch?v=Fa4cRMaTDUI)
+
+Install `sequelize` within `server`:
+
+```
+$ cd /tab-tracker/server
+$ npm install --save sequelize sqlite3@3.1.8
+```
