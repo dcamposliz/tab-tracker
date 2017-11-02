@@ -1,26 +1,8 @@
-
-
-// HTTP methods:
-//  get
-//  post
-//  put
-//  patch
-//  delete
+const AuthenticationController = require('./controllers/AuthenticationController')
+const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 
 module.exports = (app) => {
-
-
-  // ROUTES
-  // status
-  app.get('/status', (req, res) => {
-    res.send({
-      message: 'hello world!'
-    })
-  })
-  // register
-  app.post('/register', (req, res) => {
-    res.send({
-      message: `Hello ${req.body.email}! Your user was registered!`
-    })
-  })
+  app.post('/register',
+    AuthenticationControllerPolicy.register,
+    AuthenticationController.register)
 }

@@ -307,5 +307,26 @@ $ touch config.js
 Update `/tab-tracker/server/src/config/config.js` such that:
 
 ```
+hahaha
+```
+
+Run into an issue with `async` when working on the `AuthenticationController.js` as my version of Node was not the latest one. Also ran into a SQLite3 issue when updated node.
+
+Ran the following and fixed issue:
 
 ```
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+$ npm install
+$ npm rebuild
+$ npm start
+```
+
+**Need to finish documentation for this video.**
+
+Check out [docs for Vuetify](https://vuetifyjs.com/).
+
+# Video 3: [Full Stack Web App Using Vue.js & Express.js: Part 3 - Login](https://www.youtube.com/watch?v=H6hM_5ilhqw&t=235)
+
+Finished at 23:03 of third tutorial video.
