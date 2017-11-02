@@ -329,4 +329,6 @@ Check out [docs for Vuetify](https://vuetifyjs.com/).
 
 # Video 3: [Full Stack Web App Using Vue.js & Express.js: Part 3 - Login](https://www.youtube.com/watch?v=H6hM_5ilhqw&t=235)
 
-Finished at 23:03 of third tutorial video.
+Finished at 32:00 of third tutorial video.
+
+Next is implementing JWTs. Dope.
