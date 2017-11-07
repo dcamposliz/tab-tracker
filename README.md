@@ -332,3 +332,6 @@ Check out [docs for Vuetify](https://vuetifyjs.com/).
 Finished at 32:00 of third tutorial video.
 
 Next is implementing JWTs. Dope.
+
+npm install --save jsonwebtoken
+npm install --save bcrypt-nodejs
