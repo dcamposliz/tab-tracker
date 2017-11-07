@@ -12,7 +12,17 @@ module.exports = {
         error: 'Oops... an error has occurred trying to fetch the songs. Try again later.'
       })
     }
-  },//end of async post
+  },// end of async index
+  async show (req, res) {
+    try {
+      const song = await Song.findById(req.params.songId)
+      res.send(song)
+    } catch (err) {
+      res.status(500).send({
+        error: 'Oops... an error has occurred trying to fetch the songs. Try again later.'
+      })
+    }
+  },// end of async show
   async post (req, res) {
     try {
       const song = await Song.create(req.body)
@@ -23,5 +33,5 @@ module.exports = {
         error: 'Oops... an error has occurred trying to create songs. Try again later.'
       })
     }
-  }//end of async post
-}//end of module.exports
+  }// end of async post
+}// end of module.exports
