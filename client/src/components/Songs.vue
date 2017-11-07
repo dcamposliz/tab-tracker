@@ -2,6 +2,18 @@
   <v-layout column>
     <v-flex xs8 offset-xs2>
       <panel title="Songs">
+        <v-btn
+          slot="action"
+          @click="navigateTo({name: 'songs-create'})"
+          dark
+          class="pink darken-1"
+          medium
+          absolute
+          right
+          large
+          fab>
+          <v-icon>add</v-icon>
+        </v-btn>
         <div v-for="song in songs"
           :key="song.title">
           <strong>{{song.title}}</strong> -
@@ -13,6 +25,7 @@
   </v-layout>
 </template>
 <script>
+import SongsService from '@/services/SongsService'
 import Panel from '@/components/Panel'
 export default {
   components: {
@@ -20,39 +33,18 @@ export default {
   },
   data () {
     return {
-      songs: [
-        {
-          title: 'I Need U',
-          artist: 'Sci-Fi Scheme',
-          album: 'dynmk'
-        },
-        {
-          title: 'If I Told You',
-          artist: 'Show Clothes',
-          album: 'dynmk'
-        },
-        {
-          title: 'If',
-          artist: 'XONA',
-          album: 'dynmk'
-        },
-        {
-          title: 'U & I',
-          artist: 'The Theorist',
-          album: 'dynmk'
-        },
-        {
-          title: 'Love (BAILE Remix)',
-          artist: 'Daughter',
-          album: 'dynmk'
-        },
-        {
-          title: 'Ekali',
-          artist: 'Unfaith',
-          album: 'dynmk'
-        }
-      ]
+      songs: null
     }
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  },
+  async mounted () {
+    // do a request to the backend for all the songs
+    this.songs = (await SongsService.index()).data
+    console.log('songs', this.songs)
   }
 }
 </script>
