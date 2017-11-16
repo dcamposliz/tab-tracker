@@ -13,7 +13,11 @@ module.exports = {
   async register (req, res) {
     try {
       const user = await User.create(req.body)
-      res.send(user.toJSON())
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
     } catch (err) {
       res.status(400).send({
         error: 'This email account is already in use.'
@@ -21,6 +25,7 @@ module.exports = {
     }
   },
   async login (req, res) {
+    console.log("suck my dick")
     try {
       const {email, password} = req.body
       const user = await User.findOne({
@@ -28,8 +33,9 @@ module.exports = {
           email: email
         }
       })
-      console.log('user', user.toJSON())
+
       if (!user) {
+        console.log("(403) USER NOT FOUND")
         return res.status(403).send({
           error: 'The login information was incorrect'
         })
@@ -38,7 +44,7 @@ module.exports = {
       const isPasswordValid = await user.comparePassword(password)
       if (!isPasswordValid) {
         return res.status(403).send({
-          error: 'The login information was incorrect'
+          error: 'The login information was incorrect 2'
         })
       }
 
@@ -48,6 +54,7 @@ module.exports = {
         token: jwtSignUser(userJson)
       })
     } catch (err) {
+      console.log("(500) LOGIN ERROR")
       res.status(500).send({
         error: 'Oops... something went wrong. Try again later.'
       })

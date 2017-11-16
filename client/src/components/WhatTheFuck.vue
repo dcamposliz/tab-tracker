@@ -2,7 +2,7 @@
     <v-layout>
 
       <v-flex xs4>
-        <panel title="Song Metadata">
+        <panel title="Song Metadata suck it">
 
           <v-text-field
           label="Title"
@@ -79,7 +79,7 @@
         <v-btn
           dark
           class="pink darken-4"
-          @click="create">
+          @click="save">
           Create Song
         </v-btn>
       </v-flex>
@@ -88,6 +88,7 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -106,7 +107,7 @@ export default {
     }
   },
   methods: {
-    async create () {
+    async save () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
@@ -115,15 +116,30 @@ export default {
         this.error = 'Please fill in all the required fields.'
         return
       }
+      const songId = this.$store.state.route.params.songId
       try {
-        await SongsService.post(this.song)
+        await SongService.put(songId)
         this.$router.push({
-          name: 'songs'
+          name: 'song',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
         console.log(err)
       }
     }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.show(songId)).data
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  components: {
+    Panel
   }
 }
 </script>
